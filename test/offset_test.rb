@@ -8,7 +8,7 @@ class OffsetTest < Minitest::Test
   end
 
   def test_it_exists
-      assert_instance_of Offset, @offset
+    assert_instance_of Offset, @offset
   end
 
   def test_it_has_a_date
@@ -23,6 +23,11 @@ class OffsetTest < Minitest::Test
 
   def test_it_can_square_date
     assert_equal 1672401025, @offset.date_squared
+
+    offset = Offset.new
+
+    offset.stubs(:date).returns("000001")
+    assert_equal 1, offset.date_squared
   end
 
   def test_it_creates_offset
