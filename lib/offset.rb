@@ -1,7 +1,7 @@
 class Offset
   attr_reader :date
 
-  def initialize(date)
+  def initialize(date = rand(100000).to_s.rjust(6, '0'))
     @date = date
   end
 
