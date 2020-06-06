@@ -16,6 +16,13 @@ class KeyTest < Minitest::Test
     assert_equal "02715", @key.key
   end
 
+  def test_random_key
+    key = Key.new
+
+    assert_instance_of String, key.key
+    assert_equal 5, key.key.length
+  end
+
   def test_it_can_create_keys
     expected = {
       A: 02,
