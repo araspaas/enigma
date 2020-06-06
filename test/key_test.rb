@@ -5,7 +5,7 @@ require './lib/key'
 
 class KeyTest < Minitest::Test
   def setup
-    @key = Key.new(key)
+    @key = Key.new("02715")
   end
 
   def test_it_exists
