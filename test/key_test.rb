@@ -13,6 +13,6 @@ class KeyTest < Minitest::Test
   end
 
   def test_it_has_attributes
-    assert_equal "02715", @key.Key
+    assert_equal "02715", @key.key
   end
 end
