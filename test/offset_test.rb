@@ -33,5 +33,11 @@ class OffsetTest < Minitest::Test
   def test_it_creates_offset
     expected = {A: 1, B: 0, C: 2, D:5}
     assert_equal expected, @offset.create_offset
+
+    offset = Offset.new
+
+    offset.stubs(:date_squared).returns(1)
+    expected2 = {A: 0, B: 0, C: 0, D: 1}
+    assert_equal expected2, offset.create_offset
   end
 end
