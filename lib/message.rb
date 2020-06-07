@@ -11,5 +11,9 @@ class Message
 
   def alphabet
     ("a".."z").to_a << " "
+  end
+
+  def keys
+    Key.new(key).create_keys
   end 
 end
