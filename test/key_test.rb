@@ -31,5 +31,10 @@ class KeyTest < Minitest::Test
       D: 15
     }
     assert_equal expected, @key.create_keys
+
+    key = Key.new
+    key.stubs(:key).returns("00001")
+    expected2 = {A: 0, B: 0, C: 0, D: 1}
+    assert_equal expected2, key.create_keys
   end
 end
