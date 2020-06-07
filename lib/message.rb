@@ -8,4 +8,8 @@ class Message
     @key = key
     @date = date
   end
+
+  def alphabet
+    ("a".."z").to_a << " "
+  end 
 end
