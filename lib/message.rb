@@ -15,5 +15,9 @@ class Message
 
   def keys
     Key.new(key).create_keys
-  end 
+  end
+
+  def offsets
+    Offset.new(date).create_offset
+  end
 end

@@ -1,5 +1,7 @@
 require './test/test_helper'
 require './lib/message'
+require './lib/key'
+require './lib/offset'
 
 class MessageTest < Minitest::Test
   def setup
@@ -28,5 +30,10 @@ class MessageTest < Minitest::Test
   def test_keys
     expected = { A: 2, B: 27, C: 71, D: 15}
     assert_equal expected, @message.keys
+  end
+
+  def test_offsets
+    expected = {A: 1, B: 0, C:2, D: 5}
+    assert_equal expected, @message.offsets
   end
 end
