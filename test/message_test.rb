@@ -15,4 +15,13 @@ class MessageTest < Minitest::Test
     assert_equal "02715", @message.key
     assert_equal "040895", @message.date
   end
+
+  def test_it_has_the_alphabet
+    expected = ["a", "b", "c", "d", "e", "f",
+        "g", "h", "i", "j", "k", "l",
+        "m", "n", "o", "p", "q", "r",
+        "s", "t", "u", "v", "w", "x",
+        "y", "z", " "]
+    assert_equal expected, @message.alphabet
+  end
 end
