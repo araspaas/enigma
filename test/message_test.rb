@@ -24,4 +24,9 @@ class MessageTest < Minitest::Test
         "y", "z", " "]
     assert_equal expected, @message.alphabet
   end
+
+  def test_keys
+    expected = { A: 2, B: 27, C: 71, D: 15}
+    assert_equal expected, @message.keys
+  end
 end
