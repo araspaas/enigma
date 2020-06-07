@@ -9,4 +9,10 @@ class MessageTest < Minitest::Test
   def test_it_exists
     assert_instance_of Message, @message
   end
+
+  def test_it_has_attributes
+    assert_equal "hello world", @message.message
+    assert_equal "02715", @message.key
+    assert_equal "040895", @message.date
+  end
 end
