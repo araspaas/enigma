@@ -20,4 +20,13 @@ class Message
   def offsets
     Offset.new(date).create_offset
   end
+
+  def shifts
+    {
+      A: keys[:A] + offsets[:A],
+      B: keys[:B] + offsets[:B],
+      C: keys[:C] + offsets[:C],
+      D: keys[:D] + offsets[:D]
+    }
+  end
 end
