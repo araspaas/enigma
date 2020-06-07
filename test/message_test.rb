@@ -38,7 +38,11 @@ class MessageTest < Minitest::Test
   end
 
   def test_it_can_shift
-    expected = {A: 3, B: 27, C: 73, D: 20}
+    expected = {A: 3, B: 0, C: 19, D: 20}
     assert_equal expected, @message.shifts
+  end
+
+  def test_it_can_encrypt
+    assert_equal "keder ohulw", @message.encrypt_message
   end
 end
