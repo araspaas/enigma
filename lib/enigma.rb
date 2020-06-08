@@ -1,3 +1,5 @@
+require_relative 'message'
+
 class Enigma
 
   def initialize
