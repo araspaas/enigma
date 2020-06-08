@@ -3,7 +3,6 @@ require_relative 'enigma'
 enigma = Enigma.new
 
 file = File.open(ARGV[0], "r")
-file.close
 
 message = file.read
 file.close
