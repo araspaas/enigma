@@ -46,10 +46,9 @@ class Message
 
   def split_message
     @message.downcase.split(//)
-  end 
+  end
 
   def encrypt_message
-    split_message = @message.downcase.split(//)
     encrypted_message = []
     counter = 0
     split_message.each do |character|
@@ -70,7 +69,6 @@ class Message
   end
 
   def decrypt_message
-    split_message = @message.downcase.split(//)
     decrypted_message = []
     counter = 0
     split_message.each do |character|
