@@ -2,7 +2,6 @@ require './test/test_helper'
 require './lib/message'
 require './lib/key'
 require './lib/offset'
-require './lib/decode_message'
 
 class MessageTest < Minitest::Test
   def setup
@@ -62,5 +61,10 @@ class MessageTest < Minitest::Test
   def test_encrypt
     expected = {encryption: "keder ohulw", key: "02715", date: "040895"}
     assert_equal expected, @message.encrypt
+  end
+
+  def test_decrypt
+    expected = {decryption: "hello world", key: "02715", date: "040895"}
+    assert_equal expected, @decode_message.decrypt
   end
 end
