@@ -14,7 +14,7 @@ decrypted_message = enigma.dycrypt(encrypted_message, key, date)
 
 write = File.open(ARGV[1], "w")
 
-write.write(decrypted_message)
+write.write(decrypted_message[:decryption])
 write.close
 
-p "Created #{ARGV[1]} with the key #{key} and date #{date}"
+p "Created #{ARGV[1]} with the key #{decrypted_message[:key]} and date #{decrypted_message[:date]}"
