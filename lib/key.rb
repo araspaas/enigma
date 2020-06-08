@@ -1,7 +1,7 @@
 class Key
   attr_reader :key
 
-  def initialize(key = rand(100000).to_s.rjust(5, '0'))
+  def initialize(key)
     @key = key
   end
 
