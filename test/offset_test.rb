@@ -5,10 +5,12 @@ require './lib/offset'
 class OffsetTest < Minitest::Test
   def setup
     @offset = Offset.new("040895")
+    @offset2 = Offset.new
   end
 
   def test_it_exists
     assert_instance_of Offset, @offset
+    assert_instance_of Offset, @offset2
   end
 
   def test_it_has_a_date

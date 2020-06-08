@@ -1,7 +1,9 @@
+require 'date'
+
 class Offset
   attr_reader :date
 
-  def initialize(date = rand(100000).to_s.rjust(6, '0'))
+  def initialize(date = Date.today.strftime("%m%d%y"))
     @date = date
   end
 
