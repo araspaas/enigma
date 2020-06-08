@@ -24,15 +24,18 @@ class Message
     Offset.new(@date).create_offset
   end
 
-  def shifts
-    init_shift = {
+  def initial_shift
+    {
       A: keys[:A] + offsets[:A],
       B: keys[:B] + offsets[:B],
       C: keys[:C] + offsets[:C],
       D: keys[:D] + offsets[:D]
     }
+  end
+
+  def shifts
     final_shift = {}
-    init_shift.each do |letter, shift|
+    initial_shift.each do |letter, shift|
       until shift < 27
         shift -= 27
       end
@@ -41,8 +44,11 @@ class Message
     final_shift
   end
 
+  def split_message
+    @message.downcase.split(//)
+  end
+
   def encrypt_message
-    split_message = @message.downcase.split(//)
     encrypted_message = []
     counter = 0
     split_message.each do |character|
@@ -63,7 +69,6 @@ class Message
   end
 
   def decrypt_message
-    split_message = @message.downcase.split(//)
     decrypted_message = []
     counter = 0
     split_message.each do |character|

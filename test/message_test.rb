@@ -44,10 +44,23 @@ class MessageTest < Minitest::Test
     assert_equal expected, @decode_message.offsets
   end
 
+  def test_initial_shifts
+    expected = {A: 3, B: 27, C: 73, D:20}
+    assert_equal expected, @message.initial_shift
+    assert_equal expected, @decode_message.initial_shift
+  end
+
   def test_it_can_shift
     expected = {A: 3, B: 0, C: 19, D: 20}
     assert_equal expected, @message.shifts
     assert_equal expected, @decode_message.shifts
+  end
+
+  def test_split_message
+    expected = ["h", "e", "l", "l", "o", " ", "w", "o", "r", "l", "d"]
+    assert_equal expected, @message.split_message
+    expected2 = ["k", "e", "d", "e", "r", " ", "o", "h", "u", "l", "w"]
+    assert_equal expected2, @decode_message.split_message
   end
 
   def test_it_can_encrypt
