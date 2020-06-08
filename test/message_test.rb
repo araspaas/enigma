@@ -42,7 +42,7 @@ class MessageTest < Minitest::Test
   def test_offsets
     expected = {A: 1, B: 0, C:2, D: 5}
     assert_equal expected, @message.offsets
-    assert_equal expected, @message.offsets
+    assert_equal expected, @decode_message.offsets
   end
 
   def test_it_can_shift
@@ -57,5 +57,10 @@ class MessageTest < Minitest::Test
 
   def test_it_can_decrypt
     assert_equal "hello world", @decode_message.decrypt_message
+  end
+
+  def test_encrypt
+    expected = {encryption: "keder ohulw", key: "02715", date: "040895"}
+    assert_equal expected, @message.encrypt
   end
 end
