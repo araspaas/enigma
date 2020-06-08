@@ -79,4 +79,8 @@ class Message
     end
     decrypted_message.join
   end
+
+  def encrypt
+    { encryption: encrypt_message, key: @key, date: @date }
+  end
 end
