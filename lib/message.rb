@@ -1,3 +1,6 @@
+require_relative 'key'
+require_relative 'offset'
+
 class Message
   attr_reader :message,
               :key,
