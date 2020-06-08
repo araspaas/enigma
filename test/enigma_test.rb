@@ -18,6 +18,12 @@ class EnigmaTest < Minitest::Test
     assert_equal "060820", decrypted_message[:date]
   end
 
+  def test_key
+    encrypted_message = @enigma.encrypt("hello world")
+    assert_instance_of String, encrypted_message[:key]
+    assert_equal 5, encrypted_message[:key].length
+  end
+
   def test_encrypt
     expected = { encryption: "keder ohulw", key: "02715", date: "040895"}
     assert_equal expected, @enigma.encrypt("hello world", "02715", "040895")
