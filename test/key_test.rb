@@ -16,13 +16,6 @@ class KeyTest < Minitest::Test
     assert_equal "02715", @key.key
   end
 
-  def test_random_key
-    key = Key.new
-
-    assert_instance_of String, key.key
-    assert_equal 5, key.key.length
-  end
-
   def test_it_can_create_keys
     expected = {
       A: 02,
@@ -32,8 +25,7 @@ class KeyTest < Minitest::Test
     }
     assert_equal expected, @key.create_keys
 
-    key = Key.new
-    key.stubs(:key).returns("00001")
+    key = Key.new("00001")
     expected2 = {A: 0, B: 0, C: 0, D: 1}
     assert_equal expected2, key.create_keys
   end
