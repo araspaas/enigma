@@ -9,4 +9,10 @@ class DecodeMessageTest < Minitest::Test
   def test_it_exists
     assert_instance_of DecodeMessage, @decode_message
   end
+
+  def test_it_has_attributes
+    assert_equal "keder ohulw", @decode_message.message
+    assert_equal "02715", @decode_message.key
+    assert_equal "040895", @decode_message.date
+  end
 end
