@@ -15,17 +15,14 @@ class OffsetTest < Minitest::Test
 
   def test_it_has_a_date
     assert_equal "040895", @offset.date
-  end
-
-  def test_random_date
-    offset = Offset.new
-    assert_instance_of String, offset.date
-    assert_equal 6, offset.date.length
+    @offset2.stubs(:today).returns(Date.new(2020, 06, "08".to_i))
+    assert_equal "060820", @offset2.date
   end
 
   def test_it_can_square_date
     assert_equal 1672401025, @offset.date_squared
-
+    @offset2.stubs(:today).returns(Date.new(2020, 04, "08".to_i))
+    assert_equal 3699072400, @offset2.date_squared
     offset = Offset.new
 
     offset.stubs(:date).returns("000001")
