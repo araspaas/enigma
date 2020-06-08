@@ -44,6 +44,10 @@ class Message
     final_shift
   end
 
+  def split_message
+    @message.downcase.split(//)
+  end 
+
   def encrypt_message
     split_message = @message.downcase.split(//)
     encrypted_message = []
