@@ -44,6 +44,12 @@ class MessageTest < Minitest::Test
     assert_equal expected, @decode_message.offsets
   end
 
+  def test_initial_shifts
+    expected = {A: 3, B: 27, C: 73, D:20}
+    assert_equal expected, @message.initial_shift
+    assert_equal expected, @decode_message.initial_shift
+  end
+
   def test_it_can_shift
     expected = {A: 3, B: 0, C: 19, D: 20}
     assert_equal expected, @message.shifts
