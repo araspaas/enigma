@@ -6,6 +6,10 @@ class DecodeMessage
   def initialize(message, key, date)
     @message = message
     @key = key
-    @date = date 
+    @date = date
+  end
+
+  def alphabet
+    ("a".."z").to_a << " "
   end
 end
