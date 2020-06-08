@@ -17,4 +17,4 @@ write = File.open(ARGV[1], "w")
 write.write(decrypted_message[:decryption])
 write.close
 
-p "Created #{ARGV[1]} with the key #{decrypted_message[:key]} and date #{decrypted_message[:date]}"
+p "Created '#{ARGV[1]}' with the key #{decrypted_message[:key]} and date #{decrypted_message[:date]}"
