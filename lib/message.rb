@@ -4,12 +4,16 @@ require_relative 'offset'
 class Message
   attr_reader :message,
               :key,
-              :date
+              :date,
+              :encrypted_message,
+              :decrypted_message
 
   def initialize(message, key, date)
     @message = message
     @key = key
     @date = date
+    @encrypted_message = []
+    @decrypted_message = []
   end
 
   def alphabet
@@ -49,43 +53,43 @@ class Message
   end
 
   def encrypt_message
-    encrypted_message = []
+    @encrypted_message
     counter = 0
     split_message.each do |character|
       if alphabet.include?(character) == false
-        encrypted_message << character
+        @encrypted_message << character
       elsif counter == 0 || counter % 4 == 0
-        encrypted_message << alphabet[alphabet.index(character) - (27 - shifts[:A])]
+        @encrypted_message << alphabet[alphabet.index(character) - (27 - shifts[:A])]
       elsif counter == 1 || counter % 4 == 1
-        encrypted_message << alphabet[alphabet.index(character) - (27 - shifts[:B])]
+        @encrypted_message << alphabet[alphabet.index(character) - (27 - shifts[:B])]
       elsif counter == 2 || counter % 4 == 2
-        encrypted_message << alphabet[alphabet.index(character) - (27 - shifts[:C])]
+        @encrypted_message << alphabet[alphabet.index(character) - (27 - shifts[:C])]
       elsif counter == 3 || counter % 4 == 3
-        encrypted_message << alphabet[alphabet.index(character) - (27 - shifts[:D])]
+        @encrypted_message << alphabet[alphabet.index(character) - (27 - shifts[:D])]
       end
       counter += 1
     end
-    encrypted_message.join
+    @encrypted_message.join
   end
 
   def decrypt_message
-    decrypted_message = []
+    @decrypted_message
     counter = 0
     split_message.each do |character|
       if alphabet.include?(character) == false
-        decrypted_message << character
+        @decrypted_message << character
       elsif counter == 0 || counter % 4 == 0
-        decrypted_message << alphabet[alphabet.index(character) - shifts[:A]]
+        @decrypted_message << alphabet[alphabet.index(character) - shifts[:A]]
       elsif counter == 1 || counter % 4 == 1
-        decrypted_message << alphabet[alphabet.index(character) - shifts[:B]]
+        @decrypted_message << alphabet[alphabet.index(character) - shifts[:B]]
       elsif counter == 2 || counter % 4 == 2
-        decrypted_message << alphabet[alphabet.index(character) - shifts[:C]]
+        @decrypted_message << alphabet[alphabet.index(character) - shifts[:C]]
       elsif counter == 3 || counter % 4 == 3
-        decrypted_message << alphabet[alphabet.index(character) - shifts[:D]]
+        @decrypted_message << alphabet[alphabet.index(character) - shifts[:D]]
       end
       counter += 1
     end
-    decrypted_message.join
+    @decrypted_message.join
   end
 
   def encrypt
