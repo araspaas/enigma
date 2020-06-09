@@ -1,20 +1,19 @@
-require_relative 'enigma'
+require './lib/enigma'
 
 enigma = Enigma.new
 
-file = File.open(ARGV[0], "r")
+handle = File.open(ARGV[0], "r")
 
-encrypted_message = file.read
-file.close
+encrypted_message = handle.read
+handle.close
 
 key = ARGV[2]
 date = ARGV[3]
 
-decrypted_message = enigma.dycrypt(encrypted_message, key, date)
+decrypted_message = enigma.decrypt(encrypted_message, key, date)
+writer = File.open(ARGV[1], "w")
 
-write = File.open(ARGV[1], "w")
-
-write.write(decrypted_message[:decryption])
-write.close
+writer.write(decrypted_message[:decryption])
+writer.close
 
 p "Created '#{ARGV[1]}' with the key #{decrypted_message[:key]} and date #{decrypted_message[:date]}"
